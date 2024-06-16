@@ -10,7 +10,7 @@ namespace HW18.Factories
         public static IWebDriver? _driver;
 
         public static WebDriverWait? _wait;
-               
+        private static IWebDriver SetupDriver() => _driver ??= new ChromeDriver();       
         public static IWebDriver GetDriver() => _driver ??= SetupDriver();
         public static WebDriverWait WaitDriver(IWebDriver driver, double waitTime) => _wait ??= new WebDriverWait(driver, TimeSpan.FromSeconds(waitTime));
 
@@ -19,13 +19,8 @@ namespace HW18.Factories
         {
             _driver.Quit();
             _driver = null;
+            _wait = null;
         }
 
-         private static IWebDriver SetupDriver() => _driver ??= new ChromeDriver();
-
-
-
-
-        
     }
 }

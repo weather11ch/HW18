@@ -1,9 +1,5 @@
-﻿using HW18.Factories;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Support.UI;
+﻿using OpenQA.Selenium;
 using SeleniumExtras.WaitHelpers;
-using System.Security.Principal;
-
 
 namespace HW18.Pages
 {
@@ -14,10 +10,11 @@ namespace HW18.Pages
         public static IWebElement buttonDelete;
         public static List<IWebElement> countDeletes = new List<IWebElement>();
 
-        private static IWebElement addRemoveElements = driver.FindElement(By.XPath("//*[@href='/add_remove_elements/']"));
+        private static IWebElement addRemoveElements; 
 
         public static void OpenAddRemoveElements()
         {
+            addRemoveElements = wait.Until(ExpectedConditions.ElementIsVisible(By.XPath("//*[@href='/add_remove_elements/']")));
             addRemoveElements.Click();
         }
         public static void AddElement()

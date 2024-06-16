@@ -19,5 +19,14 @@ namespace HW18.Tests
             int count = AddRemoveElements.CountElementsDelete();
             Assert.That(count.Equals(1));
         }
+        [Test]
+        public void AddRemoveElementsTestAdd()
+        {
+            AddRemoveElements.OpenAddRemoveElements();
+            AddRemoveElements.AddElement();
+            AddRemoveElements.AddElement();
+            int count = AddRemoveElements.CountElementsDelete();
+            Assert.That(count.Equals(2));
+        }
     }
 }
