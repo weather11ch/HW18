@@ -13,16 +13,21 @@ namespace HW18.Pages
 {
     internal class BasePage
     {
-        protected static IWebDriver driver = Driver.GetDriver();
+        protected static IWebDriver driver =  Driver.GetDriver();
         protected static WebDriverWait wait = Driver.WaitDriver(driver, 30);
 
 
         public static void OpenMainPage()
         {
-            driver = Driver.GetDriver();
+            Driver.GetDriver();
+            Driver.WaitDriver(driver, 30);
             driver.Navigate().GoToUrl("http://the-internet.herokuapp.com/");
 
             driver.Manage().Window.Maximize();
+        }
+        public static void CloseMainPage()
+        {
+            driver.Close();
         }
     }
 }

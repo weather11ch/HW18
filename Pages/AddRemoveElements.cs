@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using HW18.Factories;
+using OpenQA.Selenium;
 using SeleniumExtras.WaitHelpers;
 
 namespace HW18.Pages
@@ -14,6 +15,8 @@ namespace HW18.Pages
 
         public static void OpenAddRemoveElements()
         {
+            Driver.GetDriver();
+            Driver.WaitDriver(driver, 30);
             addRemoveElements = wait.Until(ExpectedConditions.ElementIsVisible(By.XPath("//*[@href='/add_remove_elements/']")));
             addRemoveElements.Click();
         }

@@ -1,4 +1,5 @@
-﻿using HW18.Pages;
+﻿using HW18.Factories;
+using HW18.Pages;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,14 +9,14 @@ using System.Threading.Tasks;
 namespace HW18.Tests
 {
     internal class AddRemoveElementsTests : BaseTest
-    {       
+    {
         [Test]
         public void AddRemoveElementsTest()
         {
-            AddRemoveElements.OpenAddRemoveElements();           
+            AddRemoveElements.OpenAddRemoveElements();
             AddRemoveElements.AddElement();
-            AddRemoveElements.AddElement();            
-            AddRemoveElements.DeleteElementButton();            
+            AddRemoveElements.AddElement();
+            AddRemoveElements.DeleteElementButton();
             int count = AddRemoveElements.CountElementsDelete();
             Assert.That(count.Equals(1));
         }
@@ -28,5 +29,6 @@ namespace HW18.Tests
             int count = AddRemoveElements.CountElementsDelete();
             Assert.That(count.Equals(2));
         }
+        
     }
 }

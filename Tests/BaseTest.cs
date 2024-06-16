@@ -14,6 +14,8 @@ namespace HW18.Tests
         [SetUp]
         public void SetUp()
         {
+            Driver.GetDriver();
+            Driver.WaitDriver(Driver.GetDriver(), 30);
             BasePage.OpenMainPage();
             Thread.Sleep(5000);
             
@@ -21,8 +23,9 @@ namespace HW18.Tests
         [TearDown]
         public void TearDown()
         {
-            
-            Driver.QuitDriver();
+            //BasePage.CloseMainPage();
+            //Driver.QuitDriver();
+            //Driver.CloseDriver();
         }
 
 
