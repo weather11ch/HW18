@@ -11,21 +11,15 @@ using System.Threading.Tasks;
 namespace HW18.Pages
 {
     internal class CheckBoxes : BasePage
-    {
-        public static IWebDriver driver = Driver.GetDriver();
-        public static WebDriverWait wait = Driver.WaitDriver(driver, 30);
+    {        
         public static IWebElement checkBoxess;        
         public static List<IWebElement> checkBoxes = new List<IWebElement>();
         public static List<string> text = new List<string>();
         
 
         public static void OpenCheckBoxesPage()
-        {
-            Driver.GetDriver();
-            Driver.WaitDriver(Driver.GetDriver(), 30);
-
-            //checkBoxess = wait.Until(ExpectedConditions.ElementIsVisible(By.XPath("//*[@id=\"content\"]/ul/li[6]/a")));
-            checkBoxess = driver.FindElement(By.XPath("//*[@id=\"content\"]/ul/li[6]/a"));
+        {           
+            checkBoxess = Driver.WaitDriver(driver, 30).Until(ExpectedConditions.ElementIsVisible(By.XPath("//*[@id=\"content\"]/ul/li[6]/a")));            
             checkBoxess.Click();
         }
                
@@ -33,7 +27,7 @@ namespace HW18.Pages
         {
             checkBoxes.Clear();
             checkBoxes = new List<IWebElement>();
-            checkBoxes = driver.FindElements(By.CssSelector("[type='checkbox']")).ToList();
+            checkBoxes = Driver.GetDriver().FindElements(By.CssSelector("[type='checkbox']")).ToList();
             string attr = checkBoxes[k].GetAttribute("checked");
             bool check;
             if (attr == "true") 
@@ -47,7 +41,7 @@ namespace HW18.Pages
         {
             checkBoxes.Clear();
             checkBoxes = new List<IWebElement>();
-            checkBoxes = driver.FindElements(By.CssSelector("[type='checkbox']")).ToList();
+            checkBoxes = Driver.GetDriver().FindElements(By.CssSelector("[type='checkbox']")).ToList();
             checkBoxes[k].Click();
         }
 

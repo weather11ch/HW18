@@ -14,29 +14,27 @@ namespace HW18.Pages
         private static IWebElement addRemoveElements; 
 
         public static void OpenAddRemoveElements()
-        {
-            Driver.GetDriver();
-            Driver.WaitDriver(driver, 30);
-            addRemoveElements = wait.Until(ExpectedConditions.ElementIsVisible(By.XPath("//*[@href='/add_remove_elements/']")));
+        {            
+            addRemoveElements = Driver.WaitDriver(driver, 30).Until(ExpectedConditions.ElementIsVisible(By.XPath("//*[@href='/add_remove_elements/']")));
             addRemoveElements.Click();
         }
         public static void AddElement()
         {
-            buttonAddElement = wait.Until(ExpectedConditions.ElementIsVisible(By.XPath("//button[text()='Add Element']")));
+            buttonAddElement = Driver.WaitDriver(driver, 30).Until(ExpectedConditions.ElementIsVisible(By.XPath("//button[text()='Add Element']")));
             buttonAddElement.Click();
 
         }             
         
         public static void DeleteElementButton()
         {
-            buttonDelete = wait.Until(ExpectedConditions.ElementIsVisible(By.XPath("//button[text()='Delete']")));
+            buttonDelete = Driver.WaitDriver(driver, 30).Until(ExpectedConditions.ElementIsVisible(By.XPath("//button[text()='Delete']")));
             buttonDelete.Click();
         }
         public static int CountElementsDelete()
         {
             countDeletes.Clear();
             countDeletes = new List<IWebElement>();
-            countDeletes = driver.FindElements(By.XPath("//button[text()='Delete']")).ToList();
+            countDeletes = Driver.GetDriver().FindElements(By.XPath("//button[text()='Delete']")).ToList();
             int count = countDeletes.Count;
             return count;
         }

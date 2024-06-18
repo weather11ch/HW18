@@ -18,12 +18,10 @@ namespace HW18.Pages
 
 
         public static void OpenMainPage()
-        {
-            Driver.GetDriver();
-            Driver.WaitDriver(driver, 30);
-            driver.Navigate().GoToUrl("http://the-internet.herokuapp.com/");
+        {            
+            Driver.GetDriver().Navigate().GoToUrl("http://the-internet.herokuapp.com/");
 
-            driver.Manage().Window.Maximize();
+            Driver.GetDriver().Manage().Window.Maximize();
         }
         public static void CloseMainPage()
         {

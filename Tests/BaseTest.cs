@@ -24,7 +24,7 @@ namespace HW18.Tests
         public void TearDown()
         {
             //BasePage.CloseMainPage();
-            //Driver.QuitDriver();
+            Driver.QuitDriver();
             //Driver.CloseDriver();
         }
 
