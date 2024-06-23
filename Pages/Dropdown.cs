@@ -23,12 +23,11 @@ namespace HW18.Pages
         {            
             string attr1 = option1.GetAttribute("value");
             string attr2 = option1.GetAttribute("selected");
-            bool check;
+            bool check = false;
             if (attr1 == optionNumber & attr2 == "true")
             {
                 check = true;
-            }
-            else check = false;
+            }            
             return check;
         }
 

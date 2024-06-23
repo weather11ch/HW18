@@ -8,10 +8,7 @@ namespace HW18.Pages
     internal class Inputs : BasePage
     {
         public static IWebElement inputs;
-        public static IWebElement arrowUp;
-        public static IWebElement arrowDown;
         public static IWebElement inputValue;
-        public static IWebElement numberValue;
         public static void OpenPageInputs()
         {
             inputs = Driver.WaitDriver(driver, 30).Until(ExpectedConditions.ElementIsVisible(By.XPath("//*[@id=\"content\"]/ul/li[27]/a")));

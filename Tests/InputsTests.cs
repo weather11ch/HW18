@@ -19,12 +19,20 @@ namespace HW18.Tests
 
         }
         [Test]
-        public void InputValueTest()
+        public void InputNumberValueTest()
         {
             Inputs.OpenPageInputs();
             Inputs.InputValue("1223");
             bool result = Inputs.CheckInputValue("1223");
-            Assert.IsTrue(result, "Input value checked");
+            Assert.IsTrue(result, "Input number value checked");
+        }
+        [Test]
+        public void InputStringValueTest()
+        {
+            Inputs.OpenPageInputs();
+            Inputs.InputValue("1223");
+            bool result = Inputs.CheckInputValue("test");
+            Assert.IsFalse(result, "Input string value checked");
         }
         [Test] 
         public void InputsKeyArrowDownTest()

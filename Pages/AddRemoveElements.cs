@@ -22,7 +22,6 @@ namespace HW18.Pages
         {
             buttonAddElement = Driver.WaitDriver(driver, 30).Until(ExpectedConditions.ElementIsVisible(By.XPath("//button[text()='Add Element']")));
             buttonAddElement.Click();
-
         }             
         
         public static void DeleteElementButton()
@@ -38,8 +37,6 @@ namespace HW18.Pages
             int count = countDeletes.Count;
             return count;
         }
-
-
     }
 }
 
