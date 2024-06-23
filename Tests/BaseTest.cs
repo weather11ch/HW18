@@ -1,11 +1,6 @@
 ﻿using HW18.Factories;
 using HW18.Pages;
-using NUnit.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace HW18.Tests
 {

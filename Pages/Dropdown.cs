@@ -1,19 +1,11 @@
 ﻿using HW18.Factories;
-using OpenQA.Selenium.Support.UI;
 using OpenQA.Selenium;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using SeleniumExtras.WaitHelpers;
 
 namespace HW18.Pages
 {
     internal class Dropdown : BasePage
     {
-        public static IWebDriver driver = Driver.GetDriver();
-        public WebDriverWait wait = Driver.WaitDriver(driver, 30);
-
         public static IWebElement dropdown;
         public static IWebElement selectOption;
         public static IWebElement option1;
@@ -22,11 +14,8 @@ namespace HW18.Pages
 
         public static void OpenDropdownPage()
         {
-            Driver.GetDriver();
-            Driver.WaitDriver(Driver.GetDriver(), 30);
-
-            //checkBoxess = wait.Until(ExpectedConditions.ElementIsVisible(By.XPath("//*[@id=\"content\"]/ul/li[6]/a")));
-            dropdown = Driver.GetDriver().FindElement(By.XPath("//*[@id=\"content\"]/ul/li[11]/a"));
+            
+            dropdown = Driver.WaitDriver(driver, 30).Until(ExpectedConditions.ElementIsVisible(By.XPath("//*[@id=\"content\"]/ul/li[11]/a")));
             dropdown.Click();
         }
 
