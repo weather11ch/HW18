@@ -13,20 +13,30 @@ namespace HW18.Pages
     {
         public static IWebElement typos;
         public static IWebElement textValue;
+        public static List<IWebElement> text = new List<IWebElement>();
+        public static List<string> textValueP = new List<string>();
         public static void OpenPageTypos()
         {
             typos = Driver.WaitDriver(driver, 30).Until(ExpectedConditions.ElementIsVisible(By.XPath("//*[@id=\"content\"]/ul/li[43]/a")));
             typos.Click();
         }
         public static void CheckPageTypos() 
+        {            
+            text.Clear();
+            text = new List<IWebElement>();
+            text = Driver.GetDriver().FindElements(By.TagName("p")).ToList();
+            List<string> textValueP = new List<string>();
+            
+            for (int i = 0; i < text.Count; i++)
+            {
+                textValueP.Add(text[i].Text);                
+            }
+
+        }
+        public static void OpenPageOrpho()
         {
-            //textValue = Driver.GetDriver().FindElement(By.TagName("p"));
-            textValue = Driver.GetDriver().FindElement(By.XPath("/*[@id=\"content\"]/div/p[1]/text()"));
-
-           string text = textValue.Text;
-            string text1 = textValue.GetAttribute("value");
-
-
+            Driver.GetDriver().Navigate().GoToUrl("https://www.reverso.net/");
+                        
         }
     }
 }
